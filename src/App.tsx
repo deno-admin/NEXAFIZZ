@@ -49,7 +49,7 @@ function App() {
                                 ease: "easeInOut"
                             }}
                         >
-                            <GiBottleCap className="w-24 h-24 mb-6 text-white" />
+                            <GiBottleCap className="w-12 h-12 mb-6 text-white" />
                         </motion.div>
                         <div className="w-48 h-1 bg-neutral-800 rounded-full overflow-hidden">
                             <motion.div
@@ -63,28 +63,32 @@ function App() {
                 )}
             </AnimatePresence>
 
-            <Header onOpenModal={() => setIsModalOpen(true)} />
-            <ScrollAnimationWrapper
-                heroComponent={
-                    <Hero activeThemeId={activeThemeId} setActiveThemeId={setActiveThemeId} onOpenModal={() => setIsModalOpen(true)} />
-                }
-                productShowcaseComponent={<ProductShowcase activeThemeId={activeThemeId} />}
-                bottleComponent={
-                    <ScrollBottle bottleImage={themes[activeThemeId].icon} />
-                }
-            />
-            <FanFavorites onOpenModal={() => setIsModalOpen(true)} />
-            <Testimonials />
-            <Comparison activeThemeId={activeThemeId} />
-            <FAQ />
-            <CTA activeThemeId={activeThemeId} onOpenModal={() => setIsModalOpen(true)} />
-            <Footer />
+            {!isLoading && (
+                <>
+                    <Header onOpenModal={() => setIsModalOpen(true)} />
+                    <ScrollAnimationWrapper
+                        heroComponent={
+                            <Hero activeThemeId={activeThemeId} setActiveThemeId={setActiveThemeId} onOpenModal={() => setIsModalOpen(true)} />
+                        }
+                        productShowcaseComponent={<ProductShowcase activeThemeId={activeThemeId} />}
+                        bottleComponent={
+                            <ScrollBottle bottleImage={themes[activeThemeId].icon} />
+                        }
+                    />
+                    <FanFavorites onOpenModal={() => setIsModalOpen(true)} />
+                    <Testimonials />
+                    <Comparison activeThemeId={activeThemeId} />
+                    <FAQ />
+                    <CTA activeThemeId={activeThemeId} onOpenModal={() => setIsModalOpen(true)} />
+                    <Footer />
 
-            <WorkSampleModal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                activeThemeId={activeThemeId}
-            />
+                    <WorkSampleModal
+                        isOpen={isModalOpen}
+                        onClose={() => setIsModalOpen(false)}
+                        activeThemeId={activeThemeId}
+                    />
+                </>
+            )}
         </div>
     );
 }
