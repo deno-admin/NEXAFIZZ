@@ -1,6 +1,0 @@
-﻿src/components/CTA.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
-src/components/FAQ.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
-src/components/Footer.tsx(2,1): error TS6133: 'heroBottle' is declared but its value is never read.
-src/components/Footer.tsx(3,1): error TS6133: 'bottleLime' is declared but its value is never read.
-src/components/Footer.tsx(4,1): error TS6133: 'bottleCitrus' is declared but its value is never read.
-src/components/Footer.tsx(5,1): error TS6133: 'bottleBlue' is declared but its value is never read.
