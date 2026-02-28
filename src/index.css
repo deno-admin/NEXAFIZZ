@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'Stangith';
+  src: url('./assets/fonts/stangith.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  /* Fonts */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-script: "Stangith", cursive;
+
+  /* Colors */
+  --color-primary-blue: #2b7de9;
+  --color-primary-cyan: #4dd9ff;
+  --color-secondary-blue: #1a5fb4;
+  --color-accent-teal: #26c6da;
+  --color-accent-sky: #62b5e5;
+  --color-off-white: #fef8ff;
+  --color-black: #1a0033;
+  --color-gray-light: #f0e6f6;
+  --color-gray-medium: #a89bb3;
+
+  /* Animations */
+  --animate-float: float 20s ease-in-out infinite;
+  --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+  --animate-fade-in-down: fadeInDown 0.6s ease-out forwards;
+  --animate-pulse-slow: pulse 4s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+
+    33% {
+      transform: translateY(-20px) translateX(10px);
+    }
+
+    66% {
+      transform: translateY(-10px) translateX(-10px);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+}
+
+/* Global resets and base styles that might not act exactly like preflight or need specific overrides */
+body {
+  font-family: var(--font-body);
+  color: var(--color-black);
+  background: var(--color-off-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-script);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Utility for complex gradients that are hard to do with utility classes alone */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary-cyan) 0%, var(--color-primary-blue) 50%, var(--color-secondary-blue) 100%);
+}
+
+.bg-gradient-sky {
+  background: linear-gradient(180deg, rgba(135, 206, 250, 0.3) 0%, rgba(43, 125, 233, 0.5) 50%, rgba(26, 95, 180, 0.8) 100%);
+}
